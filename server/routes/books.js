@@ -1,3 +1,8 @@
+//books.js
+//Author's name: Ruben Ormeno
+//StudentId: 301312350
+//WebAppname: Favorites books
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -32,7 +37,7 @@ router.get('/add', (req, res, next) => {
     res.render('books/details',{
       title:'Add Book',
       books: '',
-      displayName:req.user ? req.user.displayName:''})
+    })
 
 
 
@@ -82,8 +87,7 @@ router.get('/edit/:id', (req, res, next) => {
         {
           res.render('books/details',{
             title:'Edit Book', 
-            books: bookToEdit,
-            displayName:req.user ? req.user.displayName:''
+            books: bookToEdit
           });
         }
             
