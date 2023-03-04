@@ -1,4 +1,4 @@
-//books.js
+//file books.js
 //Author's name: Ruben Ormeno
 //StudentId: 301312350
 //WebAppname: Favorites books
