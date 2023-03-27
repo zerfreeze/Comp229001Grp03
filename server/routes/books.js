@@ -1,7 +1,4 @@
-//file books.js
-//Author's name: Ruben Ormeno
-//StudentId: 301312350
-//WebAppname: Favorites books
+/*
 
 // modules required for routing
 let express = require('express');
@@ -11,7 +8,7 @@ let mongoose = require('mongoose');
 // define the book model
 let book = require('../models/books');
 
-/* GET books List page. READ */
+/* GET books List page. READ 
 router.get('/', (req, res, next) => {
   // find all books in the books collection
   book.find( (err, books) => {
@@ -34,6 +31,7 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    /*
     res.render('books/details',{
       title:'Add Book',
       books: '',
@@ -45,10 +43,10 @@ router.get('/add', (req, res, next) => {
 
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
-
+*/
     /*****************
      * ADD CODE HERE *
-     *****************/
+     ****************
   let newBook = book({
       "Title": req.body.title,
       "Author":req.body.author,
@@ -75,7 +73,7 @@ router.get('/edit/:id', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
-     *****************/
+     ****************
     let id = req.params.id;
     book.findById(id,(err,bookToEdit)=>{
         if(err)
@@ -99,7 +97,7 @@ router.post('/edit/:id', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
-     *****************/
+     *****************
     let id = req.params.id
     console.log(req.body);
     let updatedBook = book({
@@ -130,7 +128,7 @@ router.get('/delete/:id', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
-     *****************/
+     *****************
     let id = req.params.id;
     book.remove({_id:id},(err)=>{
           if(err)
@@ -149,3 +147,4 @@ router.get('/delete/:id', (req, res, next) => {
 
 
 module.exports = router;
+*/

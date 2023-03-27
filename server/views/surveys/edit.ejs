@@ -1,0 +1,292 @@
+<% include ../partials/header.ejs %>
+<!-- MAIN CONTENT -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <h1><%= title %></h1>
+      <form class="form" method="post" novalidate>
+        <div class="form-group">
+          <label for="NameTextField">Title</label>
+          <input type="text" class="form-control" id="NameTextField"
+          placeholder="Survey Name" name="title" value="<%= surveys.Title %>" required>
+        </div>
+        <div class="form-group">
+          <label for="DescriptionTextField">Description</label>
+          <input type="text" class="form-control" id="DescriptionTextField"
+          placeholder="Survey Description" name="description" value="<%= surveys.Description %>"  required>
+        </div>
+        <div class="form-group">
+          <label for="AuthorTextField">Author</label>
+          <input type="text" class="form-control" id="AuthorTextField"
+          placeholder="Survey Author" name="author" value="<%= surveys.Author %>"  required>
+        </div>
+        <div class="form-group">
+          <label for="KindSurveyTextField">Kind of Survey</label>
+          <input type="text" class="form-control" id="KindSurveyTextField"
+          placeholder="Kind of Survey" name="kindsurvey" value="<%= surveys.KindSurvey %>"  required>
+        </div>
+        <div class="form-group">
+          <label for="NumQuestionTextField">Number of Questions</label>
+          <input type="text" class="form-control" id="NumQuestionTextField"
+          placeholder="Number of Question" name="numquestion" value="<%= surveys.NumQuestion %>"  required>
+          
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              // Get the select element
+              var numQuestionSelect = document.getElementById("NumQuestionTextField");
+          
+              // Get the question divs
+              var question1Div = document.getElementById("Question1Div");
+              var question2Div = document.getElementById("Question2Div");
+              var question3Div = document.getElementById("Question3Div");
+          
+              // Get the selected number of questions
+              var numQuestions = numQuestionSelect.value;
+          
+              // Show the appropriate question divs based on the selected number of questions
+              if (numQuestions >= 1) {
+                question1Div.style.display = "block";
+              }
+              if (numQuestions >= 2) {
+                question2Div.style.display = "block";
+              }
+              if (numQuestions == 3) {
+                question3Div.style.display = "block";
+              }
+          
+              // Add event listener to the select element
+              numQuestionSelect.addEventListener("change", function() {
+                // Hide all question divs
+                question1Div.style.display = "none";
+                question2Div.style.display = "none";
+                question3Div.style.display = "none";
+          
+                // Get the selected number of questions
+                var numQuestions = numQuestionSelect.value;
+          
+                // Show the appropriate question divs based on the selected number of questions
+                if (numQuestions >= 1) {
+                  question1Div.style.display = "block";
+                }
+                if (numQuestions >= 2) {
+                  question2Div.style.display = "block";
+                }
+                if (numQuestions == 3) {
+                  question3Div.style.display = "block";
+                }
+              });
+            });
+          </script>
+        </div>
+        <div id="Question1Div" style="display:none">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#Question1Tab" data-toggle="tab">Question 1</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="Question1Tab" class="tab-pane fade in active">
+              <div class="form-group">
+                <label for="Question1TextField">Question 1</label>
+                <input type="text" class="form-control" id="Question1TextField"
+                placeholder="Enter your question" name="question1" value="<%= surveys.Question1 %>" required>
+              </div>
+              <div class="form-group">
+                <label for="Option1TextField">Option 1</label>
+                <input type="text" class="form-control" id="Option1TextField"
+                placeholder="Enter your option" name="option1" value="<%= surveys.Option1 %>" required>
+              </div>
+
+              <div class="form-group">
+                <label for="Option2TextField">Option 2</label>
+                <input type="text" class="form-control" id="Option2TextField"
+                placeholder="Enter your option" name="option2" value="<%= surveys.Option2 %>" required>
+              </div>
+ 
+              <div class="form-group">
+                <label for="Option3TextField">Option 3</label>
+                <input type="text" class="form-control" id="Option3TextField"
+                      placeholder="Enter your option" name="option3" value="<%= surveys.Option3 %>" required>
+              </div>
+            </div>
+          </div>
+        </div>   
+        <div id="Question2Div" style="display:none">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#Question2Tab" data-toggle="tab">Question 2</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="Question2Tab" class="tab-pane fade in active">
+
+              <div class="form-group">
+                <label for="Question2TextField">Question 2</label>
+                <input type="text" class="form-control" id="Question2TextField"
+                      placeholder="Enter your question" name="question2" value="<%= surveys.Question2 %>" required>
+              </div>
+              <div class="form-group">
+                <label for="Option4TextField">Option 1</label>
+                <input type="text" class="form-control" id="Option4TextField"
+                      placeholder="Enter your option" name="option4" value="<%= surveys.Option4 %>" required>
+              </div>
+            
+              <div class="form-group">
+                <label for="Option5TextField">Option 2</label>
+                <input type="text" class="form-control" id="Option5TextField"
+                      placeholder="Enter your option" name="option5" value="<%= surveys.Option5 %>" required>
+              </div>
+
+              <div class="form-group">
+                <label for="Option6TextField">Option 3</label>
+                <input type="text" class="form-control" id="Option6TextField"
+                      placeholder="Enter your option" name="option6" value="<%= surveys.Option6 %>" required>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div id="Question3Div" style="display:none">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#Question3Tab" data-toggle="tab">Question 3</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="Question3Tab" class="tab-pane fade in active">
+              
+              <div class="form-group">
+                  <label for="Question3TextField">Question 3</label>
+                  <input type="text" class="form-control" id="Question3TextField"
+                      placeholder="Enter your question" name="question3" value="<%= surveys.Question3 %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="Option7TextField">Option 1</label>
+                <input type="text" class="form-control" id="Option7TextField"
+                      placeholder="Enter your option" name="option7" value="<%= surveys.Option7 %>" required>
+              </div>
+              <div class="form-group">
+                <label for="Option8TextField">Option 2</label>
+                <input type="text" class="form-control" id="Option8TextField"
+                      placeholder="Enter your option" name="option8" value="<%= surveys.Option8 %>" required>
+              </div>
+              <div class="form-group">
+                <label for="Option9TextField">Option 3</label>
+                <input type="text" class="form-control" id="Option9TextField"
+                      placeholder="Enter your option" name="option9" value="<%= surveys.Option9 %>" required>
+              </div>
+            </div>
+          </div>           
+        </div>
+          <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>
+          <a href="/surveys" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
+          </form>
+      </div>
+  </div>
+</div>
+<% include ../partials/footer.ejs %>
+
+
+
+
+
+
+<!-- MAIN CONTENT 
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <h1><%= title %></h1>
+      <form class="form" method="post">
+        <div class="form-group">
+          <label for="NameTextField">Title</label>
+          <input type="text" class="form-control" id="NameTextField"
+          placeholder="Survey Name" name="title" value="<%= surveys.Title %>" required>
+        </div>
+        <div class="form-group">
+          <label for="DescriptionTextField">Description</label>
+          <input type="text" class="form-control" id="DescriptionTextField"
+          placeholder="Survey Description" name="description" value="<%= surveys.Description %>"  required>
+        </div>
+        <div class="form-group">
+          <label for="AuthorTextField">Author</label>
+          <input type="text" class="form-control" id="AuthorTextField"
+          placeholder="Survey Author" name="author" value="<%= surveys.Author %>"  required>
+        </div>
+        <div class="form-group">
+          <label for="KindSurveyTextField">Kind of Survey</label>
+          <input type="text" class="form-control" id="KindSurveyTextField"
+          placeholder="Kind of Survey" name="kindsurvey" value="<%= surveys.KindSurvey %>"  required>
+        </div>
+        <div class="form-group">
+          <label for="NumQuestionTextField">Number of Questions</label>
+          <input type="text" class="form-control" id="NumQuestionTextField"
+          placeholder="Number of Question" name="numquestion" value="<%= surveys.NumQuestion %>"  required>
+        </div>
+        <div class="form-group">
+          <label for="Question1TextField">Question 1</label>
+          <input type="text" class="form-control" id="Question1TextField"
+          placeholder="Enter your question" name="question1" value="<%= surveys.Question1 %>" required>
+        </div>
+        <div class="form-group">
+          <label for="Option1TextField">Option 1</label>
+          <input type="text" class="form-control" id="Option1TextField"
+          placeholder="Enter your option" name="option1" value="<%= surveys.Option1 %>" required>
+        </div>
+        <div class="form-group">
+          <label for="Option2TextField">Option 2</label>
+          <input type="text" class="form-control" id="Option2TextField"
+          placeholder="Enter your option" name="option2" value="<%= surveys.Option2 %>" required>
+        </div>
+        <div class="form-group">
+          <label for="Option3TextField">Option 3</label>
+          <input type="text" class="form-control" id="Option3TextField"
+          placeholder="Enter your option" name="option3" value="<%= surveys.Option3 %>" required>
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>
+        <a href="/surveys" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+-->
+
+
+
+
+
+
+
+    <!-- MAIN CONTENT -
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <h1><%= title %></h1>
+            <form class="form" method="post">
+              <div class="form-group">
+                <label for="NameTextField">Title</label>
+                <input type="text" class="form-control" id="NameTextField"
+                placeholder="Survey Name" name="title" value="<%= surveys.Title %>" required>
+              </div>
+              <div class="form-group">
+                <label for="DescriptionTextField">Description</label>
+                <input type="text" class="form-control" id="DescriptionTextField"
+                placeholder="Survey Description" name="description" value="<%= surveys.Description %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="AuthorTextField">Author</label>
+                <input type="text" class="form-control" id="AuthorTextField"
+                placeholder="Survey Author" name="author" value="<%= surveys.Author %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="KindSurveyTextField">Kind of Survey</label>
+                <input type="text" class="form-control" id="KindSurveyTextField"
+                placeholder="Kind of Survey" name="kindsurvey" value="<%= surveys.KindSurvey %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="NumQuestionTextField">Number of Questions</label>
+                <input type="text" class="form-control" id="NumQuestionTextField"
+                placeholder="Number of Question" name="numquestion" value="<%= surveys.NumQuestion %>"  required>
+              </div>
+              <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>
+              <a href="/surveys" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
+            </form>
+        </div>
+      </div>
+    </div>
+  -->
+<% include ../partials/footer.ejs %>
